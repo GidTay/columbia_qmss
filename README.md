@@ -1,0 +1,6 @@
+# Columbia University Assignments: MA Quantitative Methods in the Social Sciences (QMSS)
+This repository contains a sample of coding assignments I completed during my time as a MA QMSS student at Columbia University.
+
+The primary purpose of this repository is to showcase *some* of the coding skills I have picked up or used here. It is by no means exhaustive. It does not include non-coding assignments, and also does not include many (in fact, most) coding assignments completed. Moreover, several courses I have taken during my degree do not have coding components at all, and are thus not included here.
+
+P.S. I am still in the process of completing this degree and will update this repository with more files at a later date.

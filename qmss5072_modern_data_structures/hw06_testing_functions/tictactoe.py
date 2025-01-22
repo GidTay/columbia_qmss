@@ -1,0 +1,66 @@
+"""
+Tic-Tac-Toe Game
+
+This tictactoe.py script implements a Tic-Tac-Toe game. It allows two players to
+play the game by taking turns to place their symbols ('X' or 'O')
+on a 3x3 board.
+
+Functions:
+- initialize_board: Creates an empty 3x3 Tic-Tac-Toe board initialized with empty spaces.
+- make_move: Places the player's symbol ('X' or 'O') on the board at the specified position.
+- check_winner: Checks the current state of the board for a winner, a draw, or if the game is ongoing.
+- reset_game: Resets the game by reinitializing the board.
+"""
+
+def initialize_board():
+    """Creates a 3x3 Tic-Tac-Toe board initialized with empty spaces."""
+    return [[' ' for _ in range(3)] for _ in range(3)]
+
+def make_move(board, row, col, player):
+    """
+    Places the player's symbol ('X' or 'O') on the board at the specified position.
+    
+    Args:
+        board (list): The current game board.
+        row (int): The row index (0-based).
+        col (int): The column index (0-based).
+        player (str): The player's symbol ('X' or 'O').
+
+    Returns:
+        bool: True if the move was successful, False otherwise.
+    """
+    if board[row][col] == ' ':
+        board[row][col] = player
+        return True
+    return False
+
+def check_winner(board):
+    """
+    Checks the current board for a winner.
+
+    Args:
+        board (list): The current game board.
+
+    Returns:
+        str: 'X' or 'O' if there is a winner, 'Draw' if it's a draw, or None if the game is ongoing.
+    """
+    # Check rows, columns, and diagonals
+    lines = board + list(zip(*board))  # Rows and columns
+    lines.append([board[i][i] for i in range(3)])  # Main diagonal
+    lines.append([board[i][2-i] for i in range(3)])  # Anti-diagonal
+
+    for line in lines:
+        if all(cell == 'X' for cell in line):
+            return 'X'
+        if all(cell == 'O' for cell in line):
+            return 'O'
+    
+    # Check for draw
+    if all(cell != ' ' for row in board for cell in row):
+        return 'Draw'
+    
+    return None
+
+def reset_game():
+    """Resets the game by reinitializing the board."""
+    return initialize_board()
